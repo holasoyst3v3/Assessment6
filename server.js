@@ -20,15 +20,15 @@ app.use(express.static('public'))
 
 
 app.get('/styles', () => {
-    res.sendFile(path.join(__dirname, 'public/index.css'))
+    res.sendFile(path.join(__dirname, '../index.css'))
 })
 
-// app.get('/bots', () => {
-//     res.sendFile(path.join(__dirname, '/data.js'))
-// })
+app.get('/bots', () => {
+    res.sendFile(path.join(__dirname, '../data.js'))
+})
 
 app.get('/js', () => {
-    res.sendFile(path.join(__dirname, 'pulic/index.js'))
+    res.sendFile(path.join(__dirname, '../index.js'))
 })
 
 //option 2
@@ -85,7 +85,8 @@ app.post('/api/duel', (req, res) => {
             playerRecord.losses++
             res.status(200).send('You lost!')
         } else {
-            playerRecord.losses++
+            //bug found in line 89 win/loss counter switched losses++ to wins++
+            playerRecord.wins++
             res.status(200).send('You won!')
         }
     } catch (error) {

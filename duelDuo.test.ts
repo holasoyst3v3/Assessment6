@@ -18,3 +18,18 @@ test('Title shows up when page loads', async () => {
     const displayed = await title.isDisplayed()
     expect(displayed).toBe(true)
 })
+
+test ("view all bots", async () => {
+    const seeAllBtn = await driver.findElement(By.xpath('(//body/button[1]'))
+    await seeAllBtn.click()
+    await driver.sleep(3000)
+})
+
+test ("Add cards to duo", async () => {
+    const drawBtn = await driver.findElement(By.xpath('//button[@id]'))
+    await drawBtn.click()
+    await driver.sleep(3000)
+    //const bot-btn = = await driver.findElement(By.xpath
+
+
+})
